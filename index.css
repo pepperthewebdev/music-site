@@ -1,0 +1,374 @@
+@font-face {
+  font-family: "Long";
+  src: url("Longinus.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Canopee";
+  src: url("Canopee.otf") format("opentype");
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  cursor: none;
+}
+
+h1 {
+  font-family: "Long";
+}
+
+.hero {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  background-image: url("https://images.pexels.com/photos/8202656/pexels-photo-8202656.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 5rem;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 100%;
+  height: 25vh;
+}
+/* 
+.menu div {
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  padding: 1%;
+  font-family: "Poppins";
+}
+.div1 {
+  grid-area: 1 / 1 / 2 / 6;
+}
+.div2 {
+  grid-area: 2 / 1 / 3 / 6;
+}
+.div3 {
+  grid-area: 3 / 1 / 4 / 6;
+}
+.div4 {
+  grid-area: 4 / 1 / 5 / 6;
+}
+.div5 {
+  grid-area: 5 / 1 / 6 / 6;
+} */
+
+.menu {
+  display: flex;
+  width: 100vw;
+  justify-content: space-evenly;
+  height: 10vh;
+}
+
+.item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.item a {
+  /* font-family: "Poppins"; */
+  font-family: "Canopee";
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  display: inline-block;
+  cursor: initial;
+  transition: all 0.55s cubic-bezier(1, 0, 0, 0.58, 0.97);
+}
+
+.item a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  top: calc(50% - 1.5px);
+  right: 0;
+  background: #4281b1;
+  transition: inherit;
+}
+
+.item a:hover:before {
+  left: 0;
+  width: 100%;
+}
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  padding: 0.75rem;
+  opacity: 50%;
+  background-color: #37332d;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+
+.menu:hover ~ .cursor {
+  transform: scale(50%);
+  color: #000;
+}
+.music {
+  width: 100vw;
+  height: 75vh;
+  /* background-color: #bba79e; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.record-container {
+  width: 30vw;
+  height: 30vw;
+  /* background-color: #fff; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.record-container a {
+  transition: transform 1s ease;
+}
+.record {
+  width: 30vw;
+  height: 30vw;
+  position: relative;
+
+  border-radius: 50%;
+  background: linear-gradient(
+        30deg,
+        transparent 40%,
+        rgba(42, 41, 40, 0.85) 40%
+      )
+      no-repeat 100% 0,
+    linear-gradient(60deg, rgba(42, 41, 40, 0.85) 60%, transparent 60%)
+      no-repeat 0 100%,
+    repeating-radial-gradient(#2a2928, #2a2928 4px, #ada9a0 5px, #2a2928 6px);
+  background-size: 50% 100%, 100% 50%, 100% 100%;
+}
+.track1:after,
+.track2:after,
+.track3:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* margin: -35px; */
+  /* border: solid 1px #d9a388; */
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  /* box-shadow: 0 0 0 4px #da5b33, inset 0 0 0 27px #da5b33; */
+  background-size: cover;
+  content: "";
+}
+
+.record:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+  height: 10%;
+  border-radius: 50%;
+  background: #ffff;
+  content: "";
+  z-index: 1; /* Ensure the circle is above the background */
+}
+
+.record-container:hover {
+  animation: recordplayer 5s linear infinite;
+}
+
+.record-container:hover > a {
+  transform: scale(0.75);
+}
+
+@keyframes recordplayer {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.track1:after {
+  background: url("https://images.pexels.com/photos/13173090/pexels-photo-13173090.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load");
+  background-size: cover;
+}
+
+.track2:after {
+  background: url("https://images.pexels.com/photos/10439117/pexels-photo-10439117.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load");
+  background-size: cover;
+}
+
+.track3:after {
+  background: url("https://images.pexels.com/photos/16550441/pexels-photo-16550441/free-photo-of-rooftops-against-lake.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load");
+  background-size: cover;
+}
+
+.about {
+  width: 100vw;
+  height: 80vh;
+  background-color: #000;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.about img {
+  width: 30vw;
+  height: 30vw;
+  object-fit: cover;
+}
+
+.text {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 40%;
+}
+
+.text h2 {
+  text-transform: uppercase;
+  font-family: "Long";
+  font-size: 5rem;
+}
+
+.text p {
+  padding-top: 2%;
+  font-family: "Poppins";
+  line-height: 2.5;
+}
+
+.tour {
+  width: 100vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.tour h2 {
+  font-family: "Long";
+  text-transform: uppercase;
+}
+.city {
+  font-family: "Canopee";
+}
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  height: 50%;
+  width: 100%;
+}
+
+.date {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.date a {
+  font-family: "Poppins";
+  text-decoration: none;
+}
+
+.date button {
+  border: none;
+  color: #fff;
+  background-color: #000;
+  width: 5vw;
+  height: 3vh;
+  font-family: "Poppins";
+  border-radius: 12px;
+}
+
+.date button:hover {
+  background-color: #4281b1;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 6;
+}
+.div2 {
+  grid-area: 2 / 1 / 3 / 6;
+}
+.div3 {
+  grid-area: 3 / 1 / 4 / 6;
+}
+.div4 {
+  grid-area: 4 / 1 / 5 / 6;
+}
+.div5 {
+  grid-area: 5 / 1 / 6 / 6;
+}
+
+section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #bba79e;
+  height: 30vh;
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: "Long";
+  text-transform: uppercase;
+  text-align: center;
+  height: 20vh;
+}
+
+.email-input {
+  padding: 5%;
+  font-family: "Poppins";
+  border-radius: 20px;
+  border: none;
+  font-size: small;
+}
+
+.submit {
+  border: none;
+  color: #fff;
+  background-color: #000;
+  width: 90%;
+  height: 3vh;
+  font-family: "Poppins";
+  border-radius: 12px;
+}
+
+.buisness {
+  font-family: "Long";
+  text-transform: uppercase;
+  font-size: x-large;
+}

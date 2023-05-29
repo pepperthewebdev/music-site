@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+    <title>Static Template</title>
+  </head>
+  <body>
+    <div class="hero"><h1>WE DO MUSIC BUT BETTER</h1></div>
+    <!-- <div class="menu">
+      <div class="div1"><h3>home</h3></div>
+      <div class="div2"></div>
+      <div class="div3"></div>
+      <div class="div4"></div>
+      <div class="div5"></div>
+    </div> -->
+    <div class="menu">
+      <div class="item">
+        <a href="#">music</a>
+      </div>
+      <div class="item">
+        <a href="#about">about</a>
+      </div>
+      <div class="item">
+        <a href="#tour">tour</a>
+      </div>
+      <div class="item">
+        <a href="#contact">contact</a>
+      </div>
+      <div class="cursor"></div>
+    </div>
+    <div class="music">
+      <div class="record-container">
+        <a href="#"><div class="record track1" ></div></a>
+      </div>
+      <div class="record-container">
+        <a href="#"><div class="record track2" ></div></a>
+      </div>
+      <div class="record-container">
+        <a href="#"><div class="record track3"></div></a>
+      </div>
+    </div>
+
+    <div class="about" id="about">
+      <img
+        src="https://images.pexels.com/photos/16102249/pexels-photo-16102249/free-photo-of-brown-bear-lying-in-snow.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
+      />
+      <div class="text">
+        <h2>Just a <i>Bear.</i> Making Music.</h2>
+        <p>
+          A bear with a flair for adventure and a hilarious twist. Born in the
+          wild, she fearlessly explores nature's wonders, bringing laughter
+          wherever she roams. Scaling trees with finesse and delivering witty
+          one-liners, Lady Snickers leaves both her fellow bears and woodland
+          creatures in stitches. Get ready to embark on laughter-filled
+          adventures with this comedic adventurer!
+        </p>
+      </div>
+    </div>
+    <div id="tour" class="tour">
+      <h2 class="title">tour</h2>
+      <div class="parent">
+        <div class="div1 date">
+          <p>01.01.24</p>
+          <p class="city">new york, new york</p>
+          <a href="#"><button>buy</button></a>
+        </div>
+        <div class="div2 date">
+          <p>01.01.24</p>
+          <p class="city">new york, new york</p>
+          <a href="#"><button>buy</button></a>
+        </div>
+        <div class="div3 date">
+          <p>01.01.24</p>
+          <p class="city">new york, new york</p>
+          <a href="#"><button>buy</button></a>
+        </div>
+        <div class="div4 date">
+          <p>01.01.24</p>
+          <p class="city">new york, new york</p>
+          <a href="#"><button>buy</button></a>
+        </div>
+        <div class="div5 date">
+          <p>01.01.24</p>
+          <p class="city">new york, new york</p>
+          <a href="#"><button>buy</button></a>
+        </div>
+      </div>
+    </div>
+
+    <section id="contact" class="contact">
+      <div class="email">
+        <p class="buisness"><i>for buisness inqueries</i></p>
+        <p>missbear@thebearmanagment.com</p>
+      </div>
+      <div class="form">
+        <form>
+          <p>subscribe</p>
+
+          <input class="email-input" type="email" placeholder="123email.com" />
+          <input class="submit" type="submit" />
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
+
+<script>
+  (function () {
+    const link = document.querySelectorAll("nav > .hover-this");
+    const cursor = document.querySelector(".cursor");
+
+    const animateit = function (e) {
+      const span = this.querySelector("span");
+      const { offsetX: x, offsetY: y } = e,
+        { offsetWidth: width, offsetHeight: height } = this,
+        move = 25,
+        xMove = (x / width) * (move * 2) - move,
+        yMove = (y / height) * (move * 2) - move;
+
+      span.style.transform = `translate(${xMove}px, ${yMove}px)`;
+
+      if (e.type === "mouseleave") span.style.transform = "";
+    };
+
+    const editCursor = (e) => {
+      const { clientX: x, clientY: y } = e;
+      cursor.style.left = x + "px";
+      cursor.style.top = y + "px";
+    };
+
+    link.forEach((b) => b.addEventListener("mousemove", animateit));
+    link.forEach((b) => b.addEventListener("mouseleave", animateit));
+    window.addEventListener("mousemove", editCursor);
+  })();
+</script>
